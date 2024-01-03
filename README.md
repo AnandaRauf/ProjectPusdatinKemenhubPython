@@ -5,7 +5,7 @@ Project Pustadin Kemenhub Python
 Project Pustadin Kemehub tanggal mulai project 03 Januari 2024
 
 Task:
-1. Membuat Database untuk Jasa Marga Gerbang 2 Bulan November 2024(Progress)
+1. Membuat Database untuk Jasa Marga Gerbang 2 Bulan November 2023(Progress)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
