@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box
+}
+
+
+.container {
+  width: 100%;
+  background-color: white border: solid 1px white;
+
+  box-shadow: 10px -10px 5px white;
+  -moz-box-shadow: 10px -10px 5px white;
+  -webkit-box-shadow: 10px -10px 5px white;
+  -o-box-shadow: 10px -10px 5px white;
+  border-radius: 25px;
+  ;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.web {
+  width: 40%;
+  background-color: #00BFFF;
+  border: solid 1px white;
+  box-shadow: 10px -10px 5px white;
+  -moz-box-shadow: 10px -10px 5px white;
+  -webkit-box-shadow: 10px -10px 5px white;
+  -o-box-shadow: 10px -10px 5px white;
+  border-radius: 25px;
+}
+
+.dekstop {
+  width: 80%;
+  background-color: #6495ED;
+  border: solid 1px white;
+  box-shadow: 10px -10px 5px white;
+  -moz-box-shadow: 10px -10px 5px white;
+  -webkit-box-shadow: 10px -10px 5px white;
+  -o-box-shadow: 10px -10px 5px white;
+  border-radius: 25px;
+}
+
+.android {
+  width: 35%;
+  background-color: #228B22;
+  border: solid 1px white;
+  box-shadow: 10px -10px 5px white;
+  -moz-box-shadow: 10px -10px 5px white;
+  -webkit-box-shadow: 10px -10px 5px white;
+  -o-box-shadow: 10px -10px 5px white;
+  border-radius: 25px;
+}
+
+.database {
+  width: 65%;
+  background-color: grey;
+  border: solid 1px white;
+  box-shadow: 10px -10px 5px white;
+  -moz-box-shadow: 10px -10px 5px white;
+  -webkit-box-shadow: 10px -10px 5px white;
+  -o-box-shadow: 10px -10px 5px white;
+  border-radius: 25px;
+}

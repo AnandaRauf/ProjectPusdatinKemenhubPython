@@ -1,0 +1,136 @@
+index.html {
+
+    background-color: blue;
+
+}
+
+h1 {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    font-family: arial;
+    font-size: 2em;
+    color: red
+}
+
+h2 {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    font-family: arial;
+    font-size: 2em;
+
+}
+
+p {
+    font-family: arial;
+    font-size: 12;
+
+
+
+}
+
+.owner {
+    border: solid 1px white;
+    background-color: white;
+    border-radius: 25px;
+    display: block;
+    margin-left: auto;
+
+}
+
+ul {
+    list-style-type: circle;
+
+    border-radius: 25px;
+}
+
+.horizontal-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+    float: left;
+    padding: 0;
+    width: 650px;
+    margin: 0 0 0;
+    sidebar;
+}
+
+.horizontal-menu li {
+    display: inline;
+}
+
+.horizontal-menu a {
+    display: block;
+    padding: 8px;
+    background-color: skyblue;
+}
+
+.horizontal-menu .active {
+    background-color: white;
+    color: white;
+}
+
+.horizontal-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: skyblue;
+}
+
+.horizontal-menu li {
+    float: left;
+}
+
+.horizontal-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.horizontal-menu li a:hover {
+    background-color: red;
+}
+
+
+
+.horizontal-menu li:last-child {
+    border-right: none;
+}
+
+footer {
+    display: block;
+    padding: 8px;
+    background-color: skyblue;
+}
+
+aside {
+    float: right;
+    width: 170px;
+    background-color: white;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+    color: black;
+    padding: 25px 15px 10px 15px;
+    line-height: 16px;
+
+}
+
+article {
+    float: top-left;
+    margin-top:20x;
+    margin-bottom:10px;
+    padding-top:20px;
+    
+}
+
+.logo {
+    float: none;
+    text-align: left;
+}

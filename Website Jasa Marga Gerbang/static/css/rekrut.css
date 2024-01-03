@@ -1,0 +1,22 @@
+h1{
+color:orange;
+font-family:Arial;
+font-size:medium;
+}
+namecompany{
+    letter-spacing:1px;
+    
+}
+locatecompany{
+    letter-spacing:1px;
+}
+messagecompany{
+    letter-spacing:1px;
+}
+body{ 
+    background-image:url('/static/asset/waterfall.gif');
+    background-repeat:no-repeat;
+    background-size:cover;
+
+}
+
