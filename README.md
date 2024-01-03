@@ -7,6 +7,17 @@ Project Pustadin Kemehub tanggal mulai project 03 Januari 2024
 Task:
 1. Membuat Database untuk Jasa Marga Gerbang 2 Bulan November 2023(Progress)
 
+API POST Man:
+https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=2&kode_gerbang=31&tanggal=2023-11-01
+
+curl --location 'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=2&kode_gerbang=31&tanggal=2023-12-29' \
+--header 'Authorization: 2628228679' \
+--header 'Content-Type: application/json'
+
+curl --location 'https://jid.jasamarga.com/client-api/data/gerbang' \
+--header 'Authorization: 2454282048' \
+--header 'Content-Type: application/json'
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Project Pustadin Kemehub tanggal mulai project 03 Januari 2024
