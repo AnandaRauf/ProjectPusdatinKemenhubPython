@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en,id">
+
+<head>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skill.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
+	<link rel="icon" href="{{ url_for('static', filename='asset/favicon.ico') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="HTML,CSS,JAVASCRIPT; charset=utf-8" />
+    <meta name="keywords" content="html,css,xml,js" />
+    <meta name=keywords" content="Website Jasa Marga Gerbang Dua" />
+    <meta name="description" content="Website Jasa Marga Gerbang" />
+    <meta name="author" content="Ananda Rauf Maududi" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="canonical" href="" />
+</head>
+<title>Jasa Marga Gerbang Dua Kemenhub</title>
+<body>
+    <script>
+        alert("Selamat datang di website Jasa Marga Gerbang Dua");
+    </script>
+    <div class="logo">
+        <a href="index.html"><img src="{{ url_for('static', filename='asset/logo.png') }}" width="500px" height="500px"
+                alt="Jasa Marga Kemenhub Pustadin" /></a>
+    </div>
+ 
+    
+    <table class="data-table">
+            <caption class="title">Data Jasa Marga Gerbang Dua</caption>
+            <thead>
+             
+            <tr>
+            <th>Kode Cabang</th>
+            <th>Kode Gerbang</th>
+            <th>Nama Cabang</th>
+            <th>Nama Nama Gerbang
+            <th>Tanggal</th>
+           
+            </tr>
+            </thead>
+            {% for row in output_data %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+            </tr>
+            <tbody>
+            </tbody>
+            {% endfor %} 
+        </table>
+    <header>
+        <br>
+        <nav class="navbar navbar-default " role="navigation">
+
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="horizontal-menu">
+                        <ul class="topnav right hide-on-med-and-down">
+                            <li><a href="{{ url_for('beranda') }}" type="html/html">Lihat Data</a></li>
+                            <li><a href="rekrut.html">Segera</a></li>
+                            <li><a href="review.html">Segera</a></li>
+                            <li><a href="project.html">Segera</a></li>
+
+                        </ul>
+        </nav>
+        </div>
+        </div>
+        </div>
+    </header>
+    <main>
+        <footer>
+            <p>Developed by <a style=" color:red" href="https/instagram.com/anandaraufm">Ananda Rauf Maududi</a>&nbsp;
+                and
+                Kemenhub Pustadin
+                <a style="color:red" href="https://dephub.go.id/">Kemenhub Pustadin</a>&copy;2020</p>
+        </footer>
+    </main>
+    <br>
+
+
+
+
+    <br>
+  
+
+
+
+
+
+</body>
+
+</html>
