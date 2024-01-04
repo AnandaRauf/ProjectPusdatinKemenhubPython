@@ -8,6 +8,7 @@ Update Project pada tanggal 04 Januari 2024
 
 Task:
 1. Membuat Database untuk Jasa Marga Gerbang dan untuk Jasa  Marga Gerbang Kode Cabang 2  31 dari Desember Sampai Bulan November 2023 dan Show Data di Flask(Selesai)
+2. Menampilkan api Jasa Marga Lalu Lintas semua gerbang dijadikan satu tabel(progress)
 
 API JASA MARGA:
 https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=2&kode_gerbang=31&tanggal=2023-11-01
