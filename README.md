@@ -5,9 +5,9 @@ Project Pustadin Kemenhub Python
 Project Pustadin Kemehub tanggal mulai project 03 Januari 2024
 
 Task:
-1. Membuat Database untuk Jasa Marga Gerbang 2 Bulan November 2023(Progress)
+1. Membuat Database untuk Jasa Marga Kode Cabang 2 Gerbang 31 Sampai Bulan November 2023 dan Show Data di Flask(Progress)
 
-API POST Man:
+API JASA MARGA:
 https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=2&kode_gerbang=31&tanggal=2023-11-01
 
 curl --location 'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=2&kode_gerbang=31&tanggal=2023-12-29' \
