@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "tailwind-dashboard",
   "version": "0.0.1",
   "scripts": {
@@ -22,5 +23,31 @@
     "typescript": "^4.3.2",
     "vite": "^2.3.8",
     "vue-tsc": "^0.0.24"
+=======
+  "name": "admin-one-tailwind",
+  "version": "1.0.1",
+  "scripts": {
+    "build:dev": "NODE_ENV=development gulp",
+    "build": "NODE_ENV=production gulp",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "autoprefixer": "^10.2.6",
+    "gh-pages": "^3.2.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^2.1.2"
+>>>>>>> 50be8c0 (Website Jasa Marga Update UI)
   }
 }

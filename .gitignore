@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 node_modules
 .DS_Store
 dist
 *.local
 yarn-error.log
+=======
+# Files
+.DS_Store
+npm-debug.log
+package-lock.json
+
+# Folders
+.idea/
+node_modules
+>>>>>>> 50be8c0 (Website Jasa Marga Update UI)
