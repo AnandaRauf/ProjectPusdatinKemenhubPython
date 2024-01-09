@@ -98,15 +98,15 @@ def api_jasamarga_semuagerbang():
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=1',
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=2'
         ]
-    url='https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam'
-    respon = requests.get(url,headers=headersdatagerbanglalin) 
-    for url in datagerbanglalinJan:
-        respon_json = respon.json()
-        print(json.dumps(respon_json,indent=4, sort_keys=True))
+    #url='https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam'
+    #respon = requests.get(url,headers=headersdatagerbanglalin) 
+    #for url in datagerbanglalinJan:
+        #respon_json = respon.json()
+        #print(json.dumps(respon_json,indent=4, sort_keys=True))
         
-        with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
-            schedule.every().day.at("14:10", "Asia/Jakarta").do(json.dump(respon_json, file))
-            print("Berhasil Membuat File Json")
+    with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
+        schedule.every().day.at("14:16", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json() for url in datagerbanglalinJan], file, indent=2))
+        print("Berhasil Membuat File Json")
         
             
     #datagerbang =['https://jid.jasamarga.com/client-api/data/gerbang]
