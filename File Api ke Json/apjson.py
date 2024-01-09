@@ -3,6 +3,7 @@ import json
 import schedule
 import time
 import pandas as pd
+from io import StringIO
 print("==========================================================================================\n")
 namaaplikasi = "Tools API Json\n"
 versi = "Version 1.0\n"
@@ -99,6 +100,10 @@ def api_jasamarga_semuagerbang():
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=1',
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=2'
         ]
+    io = StringIO('datagerbanglalinJan')
+    json.load(io)
+    print("Berhasil di decode")
+
     #url='https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam'
     #respon = requests.get(url,headers=headersdatagerbanglalin) 
     #for url in datagerbanglalinJan:
@@ -106,7 +111,7 @@ def api_jasamarga_semuagerbang():
         #print(json.dumps(respon_json,indent=4, sort_keys=True))
         
     with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
-        schedule.every().day.at("15:28", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json() for url in datagerbanglalinJan], file, indent=2))
+        schedule.every().day.at("15:40", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json.load(io) for url in datagerbanglalinJan], file, sort_keys=True, indent=4))
         df = pd.read_json('jasamargasemuagerbangLalin_Jan9To31.json')
         print("Hasil Pandas:",df)
 
