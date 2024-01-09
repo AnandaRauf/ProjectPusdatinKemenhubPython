@@ -2,8 +2,8 @@ import requests
 import json
 import schedule
 import time
-import pandas as pd
-from io import StringIO
+#import pandas as pd
+#from io import StringIO
 print("==========================================================================================\n")
 namaaplikasi = "Tools API Json\n"
 versi = "Version 1.0\n"
@@ -50,59 +50,46 @@ def api_jasamarga_gerbangtigasatu():
         
     print("File json api Gerbang 31 sudah berhasil dibuat")
 def api_jasamarga_semuagerbang():
+    print("Prosess tarik data........")
     #headersdatagerbang = {'Authorization': '2454282048'}
     
     headersdatagerbanglalin = {'Authorization': '2628228679'}
-    datagerbanglalinJan = [
-        'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=36',
-        'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=32',
-        'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=14&kode_gerbang=81',
+    datagerbanglalin1 = [
+        'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=36','https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=32']
+    datagerbanglalin2 = [  'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=14&kode_gerbang=81',
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=1',
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=81',
-        'https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=37',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=15&kode_gerbang=37',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=28',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=9',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=80',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=2',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=36',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=21',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=37',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=20',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=38',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=13',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=39',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=40',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=41',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=73',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=2',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=2&kode_gerbang=30',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=2&kode_gerbang=31',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=74',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=4&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=26&kode_gerbang=33',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=31',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=9&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=30',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=9&kode_gerbang=2',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=9&kode_gerbang=3',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=27&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=9&kode_gerbang=4',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=27&kode_gerbang=22',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=19&kode_gerbang=26',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=3&kode_gerbang=7',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=3&kode_gerbang=8',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=33&kode_gerbang=3',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=33&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=33&kode_gerbang=2',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=1',
-        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=2'
         ]
-    io = StringIO('datagerbanglalinJan')
-    json.load(io)
-    print("Berhasil di decode")
+    datagerbanglalin3 = ['https://jid.jasamarga.com/client-api/data/lalinperjam?kode_cabang=15&kode_gerbang=37',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=15&kode_gerbang=37',
+    
+        ]
+    datagerbanglalin4 = [ 'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=28',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=11&kode_gerbang=9']
+    
+    datagerbanglalin5 = [  'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=80',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=2'
+        ]
+    datagerbanglalin6 = [  'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=80',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=2',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=36'
+       ]
+    datagerbanglalin7 = [ 'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=21',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=14&kode_gerbang=37'
+     ]
+    
+    datagerbanglalin8 = [   'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=20',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=38',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=13'
+        ]
+    datagerbanglalin9 = ['https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=39',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=1'
+        ]
+    datagerbanglalin10 = ['https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=13&kode_gerbang=39',
+        'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=12&kode_gerbang=1']
+    #io = StringIO('datagerbanglalinJan')
+    #json.load(io)
+    #print("Berhasil di decode")
 
     #url='https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam'
     #respon = requests.get(url,headers=headersdatagerbanglalin) 
@@ -110,12 +97,18 @@ def api_jasamarga_semuagerbang():
         #respon_json = respon.json()
         #print(json.dumps(respon_json,indent=4, sort_keys=True))
         
+        #List URL
+        #url2,url3,url4,url5,url6,url7,url8,url9
+        
     with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
-        schedule.every().day.at("15:40", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json.load(io) for url in datagerbanglalinJan], file, sort_keys=True, indent=4))
-        df = pd.read_json('jasamargasemuagerbangLalin_Jan9To31.json')
-        print("Hasil Pandas:",df)
+        json.dump([requests.get(url1,headers=headersdatagerbanglalin).json() for url1 in datagerbanglalin1 for url2 in datagerbanglalin2 for url3 in datagerbanglalin3 for url4 in datagerbanglalin4 for url5 in datagerbanglalin5 for url6 in datagerbanglalin6 for url7 in datagerbanglalin7 for url8 in datagerbanglalin8 for url9 in datagerbanglalin9], file,indent=2,sort_keys=True)
+        
+        #df = pd.read_json('jasamargasemuagerbangLalin_Jan9To31.json')
+        #print("Hasil Pandas:",df)
 
         print("Berhasil Membuat File Json")
+
+schedule.every().day.at("2024-01-04").do(api_jasamarga_semuagerbang)
         
             
     #datagerbang =['https://jid.jasamarga.com/client-api/data/gerbang]
