@@ -101,11 +101,12 @@ def api_jasamarga_semuagerbang():
     
     respon = requests.get(url,headers=headersdatagerbanglalin) 
     for url in datagerbanglalinJan:
-    respon_json = respon.json()
-    
-    with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
-        schedule.every().day.at("13:40", "Asia/Jakarta").do(json.dump(respon_json, file))
-        print("Berhasil Membuat File Json")
+        respon_json = url.json()
+        print(json.dumps(respon_json,indent=4, sort_keys=True))
+        
+        with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
+            schedule.every().day.at("13:40", "Asia/Jakarta").do(json.dump(respon_json, file))
+            print("Berhasil Membuat File Json")
         
             
     #datagerbang =['https://jid.jasamarga.com/client-api/data/gerbang]
