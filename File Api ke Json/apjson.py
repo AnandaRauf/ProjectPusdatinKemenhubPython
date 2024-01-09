@@ -106,9 +106,9 @@ def api_jasamarga_semuagerbang():
         #print(json.dumps(respon_json,indent=4, sort_keys=True))
         
     with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
-        schedule.every().day.at("15:25", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json for url in datagerbanglalinJan], file, indent=2))
+        schedule.every().day.at("15:28", "Asia/Jakarta").do(  json.dump([requests.get(url,headers=headersdatagerbanglalin).json() for url in datagerbanglalinJan], file, indent=2))
         df = pd.read_json('jasamargasemuagerbangLalin_Jan9To31.json')
-        print(df)
+        print("Hasil Pandas:",df)
 
         print("Berhasil Membuat File Json")
         
