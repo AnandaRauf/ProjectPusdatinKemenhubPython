@@ -99,12 +99,11 @@ def api_jasamarga_semuagerbang():
         'https://jid.jasamarga.com/client-api/data/gerbang/lalinperjam?kode_cabang=37&kode_gerbang=2'
         ]
     
-  
+    respon = requests.get(url,headers=headersdatagerbanglalin) for url in datagerbanglalinJan
+    respon_json = respon.json()
     
-    with open('jasamargasemuagerbangLalin_Jan4To31.json', 'w') as file:
-        
-        
-        schedule.every().day.at("13:15", "Asia/Jakarta").do(json.dump([requests.get(url,headers=headersdatagerbanglalin).json for url in datagerbanglalinJan], file, indent=2))
+    with open('jasamargasemuagerbangLalin_Jan9To31.json', 'w') as file:
+        schedule.every().day.at("13:40", "Asia/Jakarta").do(json.dump(respon_json, file))
         print("Berhasil Membuat File Json")
         
             
@@ -117,7 +116,7 @@ def api_jasamarga_semuagerbang():
     #respon_json = respon.json()
     #print(json.dumps(respon_json,indent=4, sort_keys=True))
     
-    #with open('jasamargagerbang31_2023-12-29.json', 'w') as file:
+   # with open('jasamargagerbang31_2023-12-29.json', 'w') as file:
         #json.dump(respon_json, file)
         
 
