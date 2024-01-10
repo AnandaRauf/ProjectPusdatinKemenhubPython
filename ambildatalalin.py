@@ -1,8 +1,8 @@
 import requests
 from datetime import date
 import json
+from datetime import timedelta
 import urllib
-
 def getDataGerbang():
     print("Data Gerbang:\n")
     urldatagerbang = "https://jid.jasamarga.com/client-api/data/gerbang"
@@ -42,8 +42,10 @@ def getDataLalinPerGerbang():
        
         headersdatagerbanglalin = {'Authorization': '2628228679'}
         tanggal_sekarang = date.today()
+        kemarin = tanggal_sekarang - timedelta(days = 1)
         jan10 = tanggal_sekarang.strftime('%Y/%m/%d')
-        tanggaljan = jan10
+        kemarinJan= kemarin.strftime('%Y/%m/%d')
+        tanggaljan = kemarinJan
         kode_cabangurl = urllib.parse.urlencode({'kode_cabang': kodecabang})
         kode_gerbangurl = urllib.parse.urlencode({'kode_gerbang': kodegerbang})
         tanggalurl = urllib.parse.urlencode({'tanggal': tanggaljan})
@@ -54,11 +56,11 @@ def getDataLalinPerGerbang():
         respon_json = respon.json()
         
         try:
-            with open(f'jasamargasemuagerbangLalinJan10.json', 'w') as file:
+            with open(f'jasamargasemuagerbangLalinJan8.json', 'w') as file:
                 json.dump(respon_json, file)
                 print(f"Berhasil buat file json jasamargasemuagerbangLalin_{kodegerbang}_{tanggaljan}.json")
         except TypeError:
             print("Unable to serialize the object")
 
-getDataGerbang()
+#getDataGerbang()
 getDataLalinPerGerbang()
