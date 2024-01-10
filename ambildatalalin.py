@@ -1,84 +1,64 @@
 import requests
-import urllib
-import urllib.parse
-import urllib.request
-import json
-import schedule
-import time
 from datetime import date
-import itertools
+import json
+import urllib
 
 def getDataGerbang():
     print("Data Gerbang:\n")
     urldatagerbang = "https://jid.jasamarga.com/client-api/data/gerbang"
     headersdatagerbang = {
-      'Authorization': '2454282048'
-}
+        'Authorization': '2454282048'
+    }
   
-    
-    respon = requests.get(urldatagerbang,headers=headersdatagerbang)
+    respon = requests.get(urldatagerbang, headers=headersdatagerbang)
     datarespon = respon.json()
-    for i in range(40):
-        kodegerbang= datarespon[i]['kode_gerbang']
-        kodecabang= datarespon[i]['kode_cabang']
-        print("Kode Gerbang:",kodegerbang,"Kode Cabang:",kodecabang)
-      
-        with open('jasamargasemuagerbang_Jan.json', 'w') as file:
-            json.dump(kodegerbang, file)
-            json.dump(kodecabang, file)
-            print("Berhasil buat file json jasamargasemuagerbang_Jan.json")
-    #return json_respon[0]['kode_gerbang']
-    #print(data)
-    #datakode = data['kode_gerbang','kode_cabang']
-    #pilihdatakode =  int(input('Pilih index data (list index 0 -1) :'))
-    #print(datakode[pilihdatakode])
+    gerbang_data = []
 
-getDataGerbang()
+    for i in range(40):
+        kodegerbang = datarespon[i]['kode_gerbang']
+        kodecabang = datarespon[i]['kode_cabang']
+        print("Kode Gerbang:", kodegerbang, "Kode Cabang:", kodecabang)
+        gerbang_data.append({'kodegerbang': kodegerbang, 'kodecabang': kodecabang})
+
+    with open('jasamargasemuagerbang_Jan.json', 'w') as file:
+        json.dump(gerbang_data, file)
+        print("Berhasil buat file json jasamargasemuagerbang_Jan.json")
 
 def getDataLalinPerGerbang():
     print("Data Lalin:\n")
     urldatagerbang = "https://jid.jasamarga.com/client-api/data/gerbang"
     headersdatagerbang = {
-      'Authorization': '2454282048'
-}
+        'Authorization': '2454282048'
+    }
   
-    
-    respon = requests.get(urldatagerbang,headers=headersdatagerbang)
+    respon = requests.get(urldatagerbang, headers=headersdatagerbang)
     datarespon = respon.json()
-    for i in range(40):
-        kodegerbang=datarespon[i]['kode_gerbang']
-        kodecabang=datarespon[i]['kode_cabang']
-        print("Kode Gerbang:",kodegerbang)
-        print("Kode Cabang:",kodecabang)
+
+    for i in range(3):
+        kodegerbang = datarespon[i]['kode_gerbang']
+        kodecabang = datarespon[i]['kode_cabang']
+        print("Kode Gerbang:", kodegerbang)
+        print("Kode Cabang:", kodecabang)
        
         headersdatagerbanglalin = {'Authorization': '2628228679'}
         tanggal_sekarang = date.today()
         jan10 = tanggal_sekarang.strftime('%Y/%m/%d')
-        tanggaljan= jan10
-        kode_cabangurl= "&kode_cabang={kodecabang}".format(kodecabang)
-        kode_gerbangurl= "&kode_gerbang={kodegerbang}".format(kodegerbang)
-        tanggalurl =  "&tanggal={}".format(tanggaljan)
-        #args = {"&kode_cabang=": kodecabang, "&kode_gerbang=":kodegerbang ,"&tanggal=":tanggaljan}
-        datagerbanglalinurl= 'https://jid.jasamarga.com/client-api/data/lalinperjam?{}'.format(kode_cabangurl, kode_gerbangurl,tanggalurl)
-        #loaddatalalin = json.load(urllib.request.urlopen(datagerbanglalinurl))
-        #kontendata = loaddatalalin.read().decode('utf-8')
-        respon= requests.get(datagerbanglalinurl,headers=headersdatagerbanglalin)
+        tanggaljan = jan10
+        kode_cabangurl = urllib.parse.urlencode({'kode_cabang': kodecabang})
+        kode_gerbangurl = urllib.parse.urlencode({'kode_gerbang': kodegerbang})
+        tanggalurl = urllib.parse.urlencode({'tanggal': tanggaljan})
+        
+        datagerbanglalinurl = f"https://jid.jasamarga.com/client-api/data/lalinperjam?{kode_cabangurl}&{kode_gerbangurl}&{tanggalurl}"
+        
+        respon = requests.get(datagerbanglalinurl, headers=headersdatagerbanglalin)
         respon_json = respon.json()
-        print(json.dumps(respon_json,indent=4, sort_keys=True))
+        
         try:
-            with open('jasamargasemuagerbangLalin_Jan10.json', 'w') as file:
+            with open(f'jasamargasemuagerbangLalinJan10.json', 'w') as file:
                 json.dump(respon_json, file)
-            #print("Berhasil buat file json jasamargasemuagerbangLalin_Jan10.json")
+                print(f"Berhasil buat file json jasamargasemuagerbangLalin_{kodegerbang}_{tanggaljan}.json")
         except TypeError:
             print("Unable to serialize the object")
 
+getDataGerbang()
 getDataLalinPerGerbang()
-    
-
-
-
-
-#Tarik data berjadwal eksekusi
-#schedule.every().seconds.do(getDataGerbang)
-
-
