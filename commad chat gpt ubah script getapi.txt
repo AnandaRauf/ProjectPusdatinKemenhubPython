@@ -1,4 +1,4 @@
-Tolong perbaiki python code ini: import requests
+tolong perbaiki kode python berikut:import requests
 from datetime import date
 import json
 from datetime import timedelta
@@ -57,7 +57,7 @@ def getDataLalinPerGerbang():
         respon_json = respon.json()
         
         try:
-            with open(f'jasamargasemuagerbangLalinJan.json', 'w') as file:
+            with open(f'jasamargasemuagerbangLalinJan7.json', 'w') as file:
                 json.dump(respon_json, file)
                 print(f"Berhasil buat file json jasamargasemuagerbangLalin_{kodegerbang}_{tanggaljan}.json")
         except TypeError:
@@ -65,10 +65,4 @@ def getDataLalinPerGerbang():
 
 #getDataGerbang()
 getDataLalinPerGerbang()
-kemudian buatkan kode python terbaru yaitu ambil data kode_gerbang,kode_cabang dari   urldatagerbang = "https://jid.jasamarga.com/client-api/data/gerbang"
-    headersdatagerbang = {
-        'Authorization': '2454282048'
-    } mulai dari 01 Januari 2024 sampai 11 Januari 2024 kemudian masukan data kode_cabang kode_gerbang ke tabel jasamargagerbang ,kemudian buatkan kode python terbaru yaitu ambil data kode_gerbang,kode_cabang dari   urldatagerbang = "https://jid.jasamarga.com/client-api/data/gerbang"
-    headersdatagerbang = {
-        'Authorization': '2454282048'
-    } mulai dari 01 Januari 2024 sampai 11 Januari 2024 dibuatkan pengulangan kode_cabang kode_gerbang dimasukan ke datagerbanglalinurl = f"https://jid.jasamarga.com/client-api/data/lalinperjam?{kode_cabangurl}&{kode_gerbangurl}&{tanggalurl}" kemudian hasil file json terbaru,berikan file json nama jasamargasemuagerbang_Jan.json terbaru tersebut dengan menghasilkan kode json kode_cabang kode_gerbang, setelah itu auto insert ke tabel jasamarga_lalinperjam
+menjadi kode python terbaru yaitu ambil data secara pengulangan dari 01 Januari 2024 sampai Desember 2024,kemudian hasil file json tersebut dimasukan ke database db_staging dan ke tabel jasamargagerbang dan jasamarga_lalinperjam
