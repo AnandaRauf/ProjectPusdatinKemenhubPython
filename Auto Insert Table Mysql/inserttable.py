@@ -8,25 +8,7 @@ def konekdb():
     except mysql.connector.Error as err:
         print(f"Error: {err}")
 
-    #try:
-        #cursor = dbcon.cursor()
-        #grant_query1 = """GRANT ALL PRIVILEGES ON db_staging.* TO 'uStaging'@'localhost' IDENTIFIED BY 'Qw3rty1p#';"""
-        #show_grants_query = "SHOW GRANTS FOR 'uStaging'@'localhost';"
-        #grant_query2 = "GRANT ALL PRIVILEGES ON *.* TO 'uStaging'@'localhost' IDENTIFIED BY 'Qw3rty1p#' WITH GRANT OPTION;"
-        #cursor.execute(grant_query1)
-        #cursor.execute(grant_query2)
-        #cursor.execute(show_grants_query)
-        #print(cursor.rowcount, "Berhasil setting PRIVILEGES")
-
-        #alter_user_query = "ALTER USER 'uStaging'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Qw3rty1p#';"
-        #cursor.execute(alter_user_query)
-        #print(cursor.rowcount, "Berhasil setting password")
-
-        #dbcon.commit()
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-    #finally:
-        #cursor.close()
+  
 
 
 def insert_data():
@@ -71,20 +53,20 @@ def insert_data():
         cursor = dbcon.cursor()
             
         # Execute the SQL query
-        cursor.execute(sqlquery2)
+        #cursor.execute(sqlquery2)
         #cursor.execute(otomatisinsertjasamargagerbang, val)
         #cursor.execute(otomatishapusjasamargagerbang)
         # Commit the changes
         dbcon.commit()
         #print(cursor.rowcount, "Berhasil menghapus data column kode_gerbang kode_cabang")
-        print(cursor.rowcount, "Berhasil masukin data")
+        #print(cursor.rowcount, "Berhasil masukin data")
         tampildatajasamargagerbang = "SELECT * FROM jasamargagerbang"
         tampildatajasamargagerbanglalin = "SELECT * FROM jasamarga_lalinperjam"
-        cursor.execute(tampildatajasamargagerbang)
-        #cursor.execute(tampildatajasamargagerbanglalin)
+        #cursor.execute(tampildatajasamargagerbang)
+        cursor.execute(tampildatajasamargagerbanglalin)
         result = cursor.fetchall()
         for row in result: 
-            print(row,"Berhasil menampilkan data Jasa Marga Gerbang dan data Jasa Marga Gerbang Lalin!")
+            print(row,"Berhasil menampilkan data!")
     except mysql.connector.Error as err:
         print(f"Error: {err}")
     finally:
