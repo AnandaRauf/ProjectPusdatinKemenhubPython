@@ -57,9 +57,9 @@ def insert_data():
         """
     sqlquery2 = """
     INSERT INTO `jasamarga_lalinperjam` (`id`, `kode_cabang`, `kode_gerbang`, `tanggal_req`, `nama_gerbang`, `jam`, `golongan`, `shift`, `total_kendaraan`, `jumlah_gardu`, `tanggal`) VALUES
-    (19, 15, 36, '2024-01-11', 'Keluar Jakarta (Cikatama 1 + Kalitama 1 + Kalihurip 1)', 24, 0, 0, 0, 0, '2024-01-04'),
-    (20, 15, 32, '2024-01-11', 'Keluar Jakarta (Cikatama 1 + Kalitama 1 + Kalihurip 1)', 0, 0, 0, 0, 0, '2024-01-04'),
-    (21, 14, 81, '2024-01-11', 'Keluar Jakarta (Cikatama 1 + Kalitama 1 + Kalihurip 1)', 0, 0, 0, 0, 0, '2024-01-04');
+    (19, 15, 37, '2024-01-11', 'GT Pd Ranji Utama BSD', 24, 0, 0, 0, 0, '2024-01-11'),
+    (20, 15, 36, '2024-01-11', 'GT Pd Ranji Utama BSD', 0, 0, 0, 0, 0, '2024-01-11'),
+    (21, 15, 32, '2024-01-11', 'GT Pd Ranji Utama BSD', 0, 0, 0, 0, 0, '2024-01-11');
         """
     otomatisinsertjasamargagerbang = "INSERT INTO jasamargagerbang (kode_gerbang, kode_cabang) VALUES (%s, %s)"
     otomatishapusjasamargagerbang = """DELETE FROM jasamargagerbang WHERE kode_gerbang='34' AND kode_cabang='32';"""
@@ -71,7 +71,7 @@ def insert_data():
         cursor = dbcon.cursor()
             
         # Execute the SQL query
-        cursor.execute(sql_query2)
+        cursor.execute(sqlquery2)
         #cursor.execute(otomatisinsertjasamargagerbang, val)
         #cursor.execute(otomatishapusjasamargagerbang)
         # Commit the changes
