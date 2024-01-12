@@ -41,10 +41,10 @@ def getDataLalinPerGerbang():
         headersdatagerbanglalin = {"Authorization": "2628228679"}
         tanggal_sekarang = date.today()
         kemarin = tanggal_sekarang - timedelta(days=3)
-        jan10 = tanggal_sekarang.strftime("%Y/%m/%d")
-        kemarinJan = kemarin.strftime("%Y/%m/%d")
+        
+        kemarinTgl = kemarin.strftime("%Y/%m/%d")
         sekarang = tanggal_sekarang
-        tanggaljan = kemarinJan
+        
         bulansek_tglsek = sekarang
         kode_cabangurl = urllib.parse.urlencode({"kode_cabang": kodecabang})
         kode_gerbangurl = urllib.parse.urlencode({"kode_gerbang": kodegerbang})
