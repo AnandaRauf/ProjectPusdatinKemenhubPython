@@ -10,7 +10,7 @@ from datetime import datetime
 
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2024, 1, 1),
+    'start_date': datetime(2024, 1, 12),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
@@ -76,7 +76,7 @@ def FileJsonToCSV():
         data = json.load(json_file)
 
         datas = data
-        with open('jasamargasemuagerbangLalin_Sekarang.csv', 'w', newline='') as data_file:
+        with open('jasamargasemuagerbangLalin_BulanSekarang.csv', 'w', newline='') as data_file:
             csv_writer = csv.writer(data_file)
 
             count = 0
@@ -117,7 +117,7 @@ def DataCSVToMysql():
     try:
         cursor = dbcon.cursor()
 
-        with open('jasamargasemuagerbangLalin_Sekarang.csv', 'r') as csv_file:
+        with open('jasamargasemuagerbangLalin_BulanSekarang.csv', 'r') as csv_file:
             csv_reader = csv.reader(csv_file)
             header = next(csv_reader)
             for rows in csv_reader:
