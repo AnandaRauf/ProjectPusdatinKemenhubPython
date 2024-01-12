@@ -108,28 +108,18 @@ def DataCSVToMysql():
         print("Database connected successfully\n")
 
     sqlquery = """
-    INSERT INTO `jasamarga_lalinperjam` (`id`, `kode_cabang`, `kode_gerbang`, `tanggal_req`, `nama_gerbang`, `jam`, `golongan`, `shift`, `total_kendaraan`, `jumlah_gardu`, `tanggal`) VALUES
-    (22, ?, ?, CURDATE(), ?,?, ?,?, ?, ?, ?),
-    (23, ?, ?, CURDATE(), ?, ?, 0, 0, 0, ?, ?),
-    (24, ?, ?, CURDATE(), ?,?, ?, ?, ?, ?, ?);
+    INSERT INTO `jasamarga_lalinperjam` (`kode_cabang`, `kode_gerbang`, `tanggal_req`, `nama_gerbang`, `jam`, `golongan`, `shift`, `total_kendaraan`, `jumlah_gardu`, `tanggal`)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     """
-    otomatisinsertjasamargagerbang = (
-        "INSERT INTO jasamargagerbang (kode_gerbang, kode_cabang) VALUES (%s, %s)"
-    )
-    otomatishapusjasamargagerbang = (
-        """DELETE FROM jasamargagerbang WHERE kode_gerbang='34' AND kode_cabang='32';"""
-    )
-    val = ("15", "32")
 
     try:
         cursor = dbcon.cursor()
 
         with open('jasamargasemuagerbangLalin_BulanSekarang.csv', 'r') as csv_file:
-            csv_reader = csv.reader(csv_file)
-            header = next(csv_reader)
-            for rows in csv_reader:
-                cursor.execute(sqlquery, rows)
-                
+            csv_reader = csv.DictReader(csv_file)
+            for row in csv_reader:
+                cursor.execute(sqlquery, (row['kode_cabang'], row['kode_gerbang'], row['tanggal'], row['nama_gerbang'], row['jam'], row['golongan'], row['shift'], row['total_kendaraan'], row['jumlah_gardu'], row['tanggal']))
+
         dbcon.commit()
         print(cursor.rowcount, "Berhasil masukkan data")
     except mysql.connector.Error as err:
