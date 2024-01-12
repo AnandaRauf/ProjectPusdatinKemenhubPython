@@ -76,17 +76,23 @@ def FileJsonToCSV():
     with open('jasamargasemuagerbangLalin_Sekarang.json') as json_file:
         data = json.load(json_file)
 
-        datas = data
+        datas = []
+        for entry in data:
+            datas.extend(entry['data_lalin'])
+
+        sorted_data = sorted(datas, key=lambda x: (x['kode_cabang'], x['kode_gerbang'], x['jam']))
+
         with open('jasamargasemuagerbangLalin_BulanSekarang.csv', 'w', newline='') as data_file:
             csv_writer = csv.writer(data_file)
 
             count = 0
-            for entries in datas:
+            for entry in sorted_data:
                 if count == 0:
-                    header = entries.keys()
+                    header = entry.keys()
                     csv_writer.writerow(header)
                     count += 1
-                csv_writer.writerow(entries.values())
+                csv_writer.writerow(entry.values())
+
     print("Berhasil membuat file CSV")
 
 def DataCSVToMysql():
