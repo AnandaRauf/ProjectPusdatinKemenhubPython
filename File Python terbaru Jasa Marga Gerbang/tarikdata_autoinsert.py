@@ -40,7 +40,7 @@ def getDataLalinPerGerbang():
 
         headersdatagerbanglalin = {"Authorization": "2628228679"}
         tanggal_sekarang = date.today()
-        kemarin = tanggal_sekarang - timedelta(days=3)
+        kemarin = tanggal_sekarang - timedelta(days=1000)  # Mengambil data 1000 hari yang lalu
         kemarinTgl = kemarin.strftime("%Y/%m/%d")
         sekarang = tanggal_sekarang
         bulansek_tglsek = sekarang
@@ -64,16 +64,16 @@ def getDataLalinPerGerbang():
         all_data.append(data_entry)
 
     try:
-        with open(f"jasamargasemuagerbangLalin_Sekarang.json", "w") as file:
+        with open(f"jasamargasemuagerbangLalin.json", "w") as file:
             json.dump(all_data, file, indent=2)
-            print(f"Berhasil buat file json jasamargasemuagerbangLalin_Sekarang.json")
+            print(f"Berhasil buat file json jasamargasemuagerbangLalin.json")
     except TypeError:
         print("Unable to serialize the object")
 
 
 
 def FileJsonToCSV():
-    with open('jasamargasemuagerbangLalin_Sekarang.json') as json_file:
+    with open('jasamargasemuagerbangLalin.json') as json_file:
         data = json.load(json_file)
 
         datas = []
