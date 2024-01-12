@@ -41,10 +41,8 @@ def getDataLalinPerGerbang():
         headersdatagerbanglalin = {"Authorization": "2628228679"}
         tanggal_sekarang = date.today()
         kemarin = tanggal_sekarang - timedelta(days=3)
-        
         kemarinTgl = kemarin.strftime("%Y/%m/%d")
         sekarang = tanggal_sekarang
-        
         bulansek_tglsek = sekarang
         kode_cabangurl = urllib.parse.urlencode({"kode_cabang": kodecabang})
         kode_gerbangurl = urllib.parse.urlencode({"kode_gerbang": kodegerbang})
@@ -55,21 +53,24 @@ def getDataLalinPerGerbang():
         respon = requests.get(datagerbanglalinurl, headers=headersdatagerbanglalin)
         respon_json = respon.json()
 
+        data_lalin_sorted = sorted(respon_json, key=lambda x: (x['kode_cabang'], x['kode_gerbang'], x['jam']))
+
         data_entry = {
-            "kode_gerbang": kodegerbang,
             "kode_cabang": kodecabang,
-            "tanggal": tanggaljan,
-            "data_lalin": respon_json
+            "kode_gerbang": kodegerbang,
+            "data_lalin": data_lalin_sorted,
         }
 
         all_data.append(data_entry)
 
     try:
         with open(f"jasamargasemuagerbangLalin_Sekarang.json", "w") as file:
-            json.dump(all_data, file)
+            json.dump(all_data, file, indent=2)
             print(f"Berhasil buat file json jasamargasemuagerbangLalin_Sekarang.json")
     except TypeError:
         print("Unable to serialize the object")
+
+
 
 def FileJsonToCSV():
     with open('jasamargasemuagerbangLalin_Sekarang.json') as json_file:
